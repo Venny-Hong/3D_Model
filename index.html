@@ -3,43 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AR Sofa Viewer (Simplified)</title>
+    <title>AR Sofa Viewer</title>
     
-    <!-- Imports the model-viewer component -->
-    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
-    
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* Basic styling to center the model-viewer */
         body, html {
             height: 100%;
             margin: 0;
             padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            font-family: 'Inter', sans-serif;
             background-color: #f0f2f5;
         }
-        model-viewer {
-            width: 90%;
-            height: 90%;
-            max-width: 800px;
-            border-radius: 16px;
+        #ar-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            padding: 20px;
+        }
+        #ar-link {
+            display: inline-block;
+            padding: 16px 32px;
+            background-color: #1a73e8;
+            color: white;
+            border-radius: 9999px;
+            font-weight: 600;
+            font-size: 18px;
+            text-decoration: none;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease;
+        }
+        #ar-link:hover {
+            background-color: #185abc;
         }
     </style>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <!-- Simplified model-viewer with only essential attributes and the raw file URL -->
-    <model-viewer
-        src="https://raw.githubusercontent.com/Venny-Hong/3D_Model/main/sofa.glb"
-        ar
-        ar-modes="webxr scene-viewer"
-        camera-controls
-        auto-rotate
-        alt="A 3D model of a sofa">
-        
+    <div id="ar-container">
+        <div class="p-4">
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-800">Virtual Sofa Showroom</h1>
+            <p class="text-gray-600 mt-4 mb-8 text-lg">Tap the button below on your Android phone to see the sofa in your room!</p>
+        </div>
 
-    </model-viewer>
+        <!-- This is the special AR Intent Link -->
+        <a id="ar-link" href="intent://arvr.google.com/scene-viewer/1.0?file=https://Venny-Hong.github.io/3D_Model/sofa.glb&mode=ar_only#Intent;scheme=https;package=com.google.ar.core;action=android.intent.action.VIEW;S.browser_fallback_url=https://github.com/Venny-Hong/3D_Model;end;">
+            View in AR
+        </a>
+    </div>
 
 </body>
 </html>
