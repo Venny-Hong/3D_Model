@@ -3,91 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AR Sofa Viewer</title>
+    <title>AR Sofa Viewer (Simplified)</title>
     
     <!-- Imports the model-viewer component -->
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
     
-    <!-- Tailwind CSS for styling -->
-    <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* Custom styles for the AR viewer */
+        /* Basic styling to center the model-viewer */
         body, html {
             height: 100%;
             margin: 0;
             padding: 0;
-            font-family: 'Inter', sans-serif;
-            background-color: #f0f2f5; /* Light gray background */
-        }
-        #ar-container {
             display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
-            width: 100%;
-            height: 100%;
+            background-color: #f0f2f5;
         }
         model-viewer {
             width: 90%;
-            height: 75%;
-            max-width: 800px; /* Max width for larger screens */
+            height: 90%;
+            max-width: 800px;
             border-radius: 16px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-            background-color: #ffffff;
-        }
-        #ar-button {
-            display: none; /* Hidden by default, shown by model-viewer if AR is supported */
-            position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            padding: 12px 24px;
-            background-color: #1a73e8; /* Google blue */
-            color: white;
-            border-radius: 9999px; /* Pill shape */
-            font-weight: 600;
-            font-size: 16px;
-            cursor: pointer;
-            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
-            transition: background-color 0.3s ease;
-        }
-        #ar-button:hover {
-            background-color: #185abc;
         }
     </style>
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <div id="ar-container">
-        <div class="text-center p-4">
-            <h1 class="text-2xl md:text-3xl font-bold text-gray-800">Virtual Sofa Showroom</h1>
-            <p class="text-gray-600 mt-2">Interact with the model below or tap the AR button on your phone to see it in your room!</p>
-        </div>
+    <!-- Simplified model-viewer with only essential attributes and the raw file URL -->
+    <model-viewer
+        src="https://raw.githubusercontent.com/Venny-Hong/3D_Model/main/sofa.glb"
+        ar
+        ar-modes="webxr scene-viewer"
+        camera-controls
+        auto-rotate
+        alt="A 3D model of a sofa">
+        
 
-        <!-- The 3D model viewer with the correct GitHub Pages URL -->
-        <model-viewer
-            id="sofa-viewer"
-            src="https://Venny-Hong.github.io/3D_Model/sofa.glb"
-            ar
-            ar-modes="webxr scene-viewer"
-            ar-scale="fixed"
-            camera-controls
-            auto-rotate
-            shadow-intensity="1"
-            environment-image="neutral"
-            alt="A 3D model of a sofa">
-
-            <!-- The AR button has been added back in -->
-            <button slot="ar-button" id="ar-button">
-                View in your space
-            </button>
-
-        </model-viewer>
-    </div>
+    </model-viewer>
 
 </body>
 </html>
