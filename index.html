@@ -12,10 +12,6 @@
     body {font-family: 'Inter', sans-serif; margin:0; background:#f0f2f5; color:#333}
     #ar-container {display:flex; flex-direction:column; align-items:center; justify-content:center; height:100vh;}
     model-viewer {width:90%; height:70%; max-width:800px; background:#fff; border-radius:16px; box-shadow:0 10px 25px rgba(0,0,0,0.1)}
-    #ar-button {position:absolute; bottom:20px; left:50%; transform:translateX(-50%); padding:12px 24px; background:#1a73e8; color:white; border:none; border-radius:9999px; font-weight:600; cursor:pointer; display:none}
-    #ar-button:hover {background:#185abc}
-    .ar-prompt {position:absolute; bottom:80px; left:50%; transform:translateX(-50%); background:rgba(0,0,0,0.7); color:#fff; padding:8px 16px; border-radius:8px; opacity:0; transition:opacity 0.5s ease; pointer-events:none}
-    model-viewer[ar-status="session-started"] ~ .ar-prompt {opacity:1}
   </style>
 </head>
 <body>
@@ -26,32 +22,15 @@
     </div>
 
     <model-viewer id="sofa-viewer"
-      src="https://raw.githubusercontent.com/Venny-Hong/3D_model/main/sofa.glb"
+      src="https://raw.githubusercontent.com/Venny-Hong/3D_Model/main/sofa.glb"
       alt="A 3D model of a sofa"
       ar
-      ar-modes="scene-viewer webxr quick-look"
-      ar-scale="fixed"
+      ar-modes="scene-viewer quick-look webxr"
       camera-controls
       auto-rotate
       shadow-intensity="1"
       environment-image="neutral">
-
-      <!-- custom AR button -->
-      <button slot="ar-button" id="ar-button">View in your space</button>
     </model-viewer>
-
-    <div class="ar-prompt"><p>Move your phone to scan the floor</p></div>
   </div>
-
-  <script>
-    // Show custom AR button only if AR is available
-    const viewer = document.getElementById('sofa-viewer');
-    const arButton = document.getElementById('ar-button');
-    viewer.addEventListener('ar-status', (event) => {
-      if (event.detail.status === 'not-presenting') {
-        arButton.style.display = 'block';
-      }
-    });
-  </script>
 </body>
 </html>
