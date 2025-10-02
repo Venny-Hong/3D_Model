@@ -1,77 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AR Sofa Viewer</title>
-    
-    <!-- Tailwind CSS for styling -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        body, html {
-            height: 100%;
-            margin: 0;
-            padding: 0;
-            font-family: 'Inter', sans-serif;
-            background-color: #f0f2f5;
-        }
-        #ar-container {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            width: 100%;
-            height: 100%;
-            text-align: center;
-            padding: 20px;
-        }
-        #ar-link {
-            display: inline-block;
-            padding: 16px 32px;
-            background-color: #1a73e8;
-            color: white;
-            border-radius: 9999px;
-            font-weight: 600;
-            font-size: 18px;
-            text-decoration: none;
-            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
-            transition: background-color 0.3s ease;
-        }
-        #ar-link:hover {
-            background-color: #185abc;
-        }
-    </style>
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AR Sofa Viewer</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    body, html {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+      background-color: #f0f2f5;
+    }
+  </style>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <div id="ar-container">
-        <div class="p-4">
-            <h1 class="text-3xl md:text-4xl font-bold text-gray-800">Virtual Sofa Showroom</h1>
-            <p class="text-gray-600 mt-4 mb-8 text-lg">Tap the button below on your Android phone to see the sofa in your room!</p>
-        </div>
-
-        <!-- This is the special AR Intent Link -->
-        <a id="ar-link" href="intent://arvr.google.com/scene-viewer/1.0?file=https://Venny-Hong.github.io/3D_Model/sofa.glb&mode=ar_only#Intent;scheme=https;package=com.google.ar.core;action=android.intent.action.VIEW;S.browser_fallback_url=https://github.com/Venny-Hong/3D_Model;end;">
-            View in AR
-        </a>
-        
-         <a id="ar-link" href="intent://arvr.google.com/scene-viewer/1.0?file=https://Venny-Hong.github.io/3D_Model/new_sofa.glb&mode=ar_only#Intent;scheme=https;package=com.google.ar.core;action=android.intent.action.VIEW;S.browser_fallback_url=https://github.com/Venny-Hong/3D_Model;end;">
-            View in AR
-        </a>
-
-         <a id="ar-link" href="intent://arvr.google.com/scene-viewer/1.0?file=https://Venny-Hong.github.io/3D_Model/lamp.glb&mode=ar_only#Intent;scheme=https;package=com.google.ar.core;action=android.intent.action.VIEW;S.browser_fallback_url=https://github.com/Venny-Hong/3D_Model;end;">
-            View in AR
-        </a>
-
-         <a id="ar-link" href="intent://arvr.google.com/scene-viewer/1.0?file=https://Venny-Hong.github.io/3D_Model/desk.glb&mode=ar_only#Intent;scheme=https;package=com.google.ar.core;action=android.intent.action.VIEW;S.browser_fallback_url=https://github.com/Venny-Hong/3D_Model;end;">
-            View in AR
-        </a>
-
+  <div id="ar-container" class="flex flex-col items-center justify-center text-center p-6 space-y-6 h-full">
+    
+    <div>
+      <h1 class="text-3xl md:text-4xl font-bold text-gray-800">Virtual Sofa Showroom</h1>
+      <p class="text-gray-600 mt-4 text-lg">
+        Tap a button below on your Android phone to see the furniture in your room!
+      </p>
     </div>
+
+    <!-- AR Buttons -->
+    <a class="ar-link px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-full shadow-md font-semibold text-lg transition"
+       href="intent://arvr.google.com/scene-viewer/1.0?file=https://Venny-Hong.github.io/3D_Model/sofa.glb&mode=ar_only#Intent;scheme=https;package=com.google.ar.core;action=android.intent.action.VIEW;S.browser_fallback_url=https://github.com/Venny-Hong/3D_Model;end;">
+      View Sofa in AR
+    </a>
+
+    <a class="ar-link px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-full shadow-md font-semibold text-lg transition"
+       href="intent://arvr.google.com/scene-viewer/1.0?file=https://Venny-Hong.github.io/3D_Model/new_sofa.glb&mode=ar_only#Intent;scheme=https;package=com.google.ar.core;action=android.intent.action.VIEW;S.browser_fallback_url=https://github.com/Venny-Hong/3D_Model;end;">
+      View New Sofa in AR
+    </a>
+
+    <a class="ar-link px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-full shadow-md font-semibold text-lg transition"
+       href="intent://arvr.google.com/scene-viewer/1.0?file=https://Venny-Hong.github.io/3D_Model/lamp.glb&mode=ar_only#Intent;scheme=https;package=com.google.ar.core;action=android.intent.action.VIEW;S.browser_fallback_url=https://github.com/Venny-Hong/3D_Model;end;">
+      View Lamp in AR
+    </a>
+
+    <a class="ar-link px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-full shadow-md font-semibold text-lg transition"
+       href="intent://arvr.google.com/scene-viewer/1.0?file=https://Venny-Hong.github.io/3D_Model/desk.glb&mode=ar_only#Intent;scheme=https;package=com.google.ar.core;action=android.intent.action.VIEW;S.browser_fallback_url=https://github.com/Venny-Hong/3D_Model;end;">
+      View Desk in AR
+    </a>
+
+  </div>
 
 </body>
 </html>
